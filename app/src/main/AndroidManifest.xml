@@ -19,6 +19,7 @@
         <activity android:name=".ui.SubActivity" />
         <activity android:name=".ui.ViewInAActivity" />
         <activity android:name=".ui.FragmentInAActivity" />
+        <activity android:name=".ui.MyFragmentActivity" />
     </application>
 
 </manifest>
