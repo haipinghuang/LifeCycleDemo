@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LifeCycleDemo</string>
+    <string name="curMode">not night</string>
+</resources>
