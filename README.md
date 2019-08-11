@@ -1,0 +1,2 @@
+# LifeCycleDemo
+这是一个测试安卓App中View、Fragment、Activity以及它们交叉存在时的生命周期的demo
