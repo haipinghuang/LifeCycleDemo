@@ -20,13 +20,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
-        return super.onCreateView(parent, name, context, attrs);
-    }
-
     public void clk(View view) {
-        Log.e(TAG, "跳转activity ");
-        startActivity(new Intent(this, FragmentInAActivity.class));
+        switch (view.getId()) {
+            case R.id.btnViewInAActivity:
+                startActivity(new Intent(this, ViewInAActivity.class));
+                break;
+            case R.id.btnFragmentInAActivity:
+                startActivity(new Intent(this, FragmentInAActivity.class));
+                break;
+            case R.id.btnTabHostActivity:
+                startActivity(new Intent(this, TabHostActivity.class));
+                break;
+            case R.id.btnPageAdapterActivity:
+                startActivity(new Intent(this, PageAdapterActivity.class));
+                break;
+            case R.id.btnStatePageAdapterActivity:
+                startActivity(new Intent(this, StatePageAdapterActivity.class));
+                break;
+        }
     }
 }

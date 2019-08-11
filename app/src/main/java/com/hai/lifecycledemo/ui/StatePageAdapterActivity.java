@@ -1,0 +1,51 @@
+package com.hai.lifecycledemo.ui;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.hai.lifecycledemo.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Fragment在FragmentStatePagerAdapter管理下的生命周期
+ * setUserVisibleHint-onAttach-onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-onResume
+ * 向右切换超过缓存数量后
+ * setUserVisibleHint-onAttach-onCreate-(onPause-onStop-onDestroyView-onDestroy-onDetach)-onCreateView-onViewCreated-onActivityCreated-onStart-onResume
+ * 向左切换超过缓存数量后
+ * setUserVisibleHint-onAttach-onCreate-(onPause-onStop-onDestroyView-onDestroy-onDetach)-onCreateView-onViewCreated-onActivityCreated-onStart-onResume
+ * Created by huanghp on 2018/9/10.
+ * Email h1132760021@sina.com
+ */
+public class StatePageAdapterActivity extends PageAdapterActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                Log.e("FragmentPagerAdapter", "getItem: " + position);
+//                if (map.get(position) == null)
+//                    map.put(position, TabFragment.newInstance(titles[position]));
+//                return map.get(position);
+                return TabFragment.newInstance(titles[position]);
+            }
+
+            @Override
+            public int getCount() {
+                return titles.length;
+            }
+        });
+
+    }
+}

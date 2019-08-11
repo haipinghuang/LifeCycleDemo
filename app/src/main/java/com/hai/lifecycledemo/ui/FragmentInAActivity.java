@@ -13,20 +13,21 @@ import com.hai.lifecycledemo.R;
  * Fragment直接写入xml中，Fragment和Fctivity的交叉生命周期
  * 周期1(Activity结束)：
  * onCreate-onCreateView-
- *      (Fragment)onAttach-
+ * (Fragment)onAttach-
  * onAttachFragment-
- *      (Fragment)onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-
+ * (Fragment)onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-
  * onStart-onPostCreate-onResume-
- *      (Fragment)onResume-
+ * (Fragment)onResume-
  * onResumeFragments-onPostResume-onAttachedToWindow-
- *      (Fragment)onPause-
+ * (Fragment)onPause-
  * onPause-
- *      (Fragment)onStop-
+ * (Fragment)onStop-
  * onStop-
- *      (Fragment)onDestroyView-onDestroy-onDetach-
+ * (Fragment)onDestroyView-onDestroy-onDetach-
  * onDestroy-onDetachedFromWindow
- * 周期2：
- *
+ * 单独Fragment周期：
+ *      onAttach-onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-onResume-onPause-onStop(Actiity未finish)
+ *      onStart-onResume
  * Created by huanghp on 2019/8/9.
  * Email h1132760021@sina.com
  */
@@ -40,6 +41,6 @@ public class FragmentInAActivity extends AppCompatActivity {
     }
 
     public void clk(View view) {
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +7,37 @@
     tools:context=".ui.MainActivity">
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/btnViewInAActivity"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clk"
-        android:text="toSub" />
+        android:text="ViewInAActivity" />
+
+    <Button
+        android:id="@+id/btnFragmentInAActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clk"
+        android:text="FragmentInAActivity" />
+
+    <Button
+        android:id="@+id/btnTabHostActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clk"
+        android:text="TabHostActivity" />
+
+    <Button
+        android:id="@+id/btnPageAdapterActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clk"
+        android:text="PageAdapterActivity" />
+
+    <Button
+        android:id="@+id/btnStatePageAdapterActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clk"
+        android:text="StatePageAdapterActivity" />
 </LinearLayout>
