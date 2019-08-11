@@ -1,2 +1,2 @@
 # LifeCycleDemo
-这是一个测试安卓App中View、Fragment、Activity以及它们交叉存在时的生命周期的demo
+这是一个测试安卓App中View、Fragment、Activity以及它们交叉存在时的生命周期的demo。所谓好记性不如烂笔头，做这个项目的意义在于记录下android不同状态下各个组件的生命周期，方便做开发查阅，做性能优化；第二个就是若是要得知某个具体的生命周期，通过这个项目也可以马上测试。
