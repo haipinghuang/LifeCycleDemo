@@ -13,11 +13,27 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.hai.lifecycledemo.R;
+import com.hai.lifecycledemo.ui.base.LifeCycleActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Fragment与FragmentAciviy在FragmentPagerAdapter管理下的交叉生命周期
+ * onCreate-onCreateView-onStart-onPostCreate-onResume-onResumeFragments-onPostResume-onAttachedToWindow
+ *      (Fragment)setUserVisibleHint-onAttach-
+ * onAttachFragment
+ *      (Fragment)onCreate-onCreateView-
+ * onCreateView
+ *      (Fragment)onViewCreated-onActivityCreated-onStart-onResume-
+ *
+ * 缓存满情况下切换ViewPage
+ *      (Fragment)setUserVisibleHint-onAttach-
+ * onAttachFragment
+ *      (Fragment)onCreate-(onPause-onStop-onDestroyView)-onCreateView-
+ * onCreateView
+ *      (Fragment)onViewCreated-onActivityCreated-onStart-onResume-
+ *
  * Fragment在FragmentPagerAdapter管理下的生命周期
  * setUserVisibleHint-onAttach-onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-onResume
  * 向右切换超过缓存数量后
@@ -27,7 +43,7 @@ import java.util.List;
  * Created by huanghp on 2018/9/10.
  * Email h1132760021@sina.com
  */
-public class PageAdapterActivity extends FragmentActivity {
+public class PageAdapterActivity extends LifeCycleActivity {
     ViewPager viewPager;
     TextView tvIndex;
     String[] titles = new String[]{"one", "two", "three", "four", "five", "six", "seven", "eight", "night", "ten", "eleven", "twive"};
@@ -37,6 +53,7 @@ public class PageAdapterActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_adapter);
+        setTitle("PageAdapterActivity");
 
         viewPager = (ViewPager) findViewById(R.id.viewPage);
         tvIndex = (TextView) findViewById(R.id.tvIndex);
@@ -61,7 +78,7 @@ public class PageAdapterActivity extends FragmentActivity {
                 tvIndex.setText((position + 1) + "");
             }
         });
-//        viewPager.setOffscreenPageLimit(titles.length);
+//        viewPager.setOffscreenPageLimit(3);
         tvIndex.setText((viewPager.getCurrentItem() + 1) + "");
     }
 }
