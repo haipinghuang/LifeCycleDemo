@@ -19,7 +19,6 @@
         <activity android:name=".ui.SubActivity" />
         <activity android:name=".ui.ViewInAActivity" />
         <activity android:name=".ui.FragmentInAActivity" />
-        <activity android:name=".ui.MyFragmentActivity" />
         <activity android:name=".ui.TabHostActivity" />
         <activity android:name=".ui.PageAdapterActivity" />
         <activity android:name=".ui.StatePageAdapterActivity" />
