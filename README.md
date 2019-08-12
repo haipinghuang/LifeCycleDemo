@@ -56,9 +56,9 @@
     setUserVisibleHint-onAttach-onCreate-(onPause-onStop-onDestroyView)-onCreateView-onViewCreated-onActivityCreated-onStart-onResume
     向左切换超过缓存数量后
     setUserVisibleHint-onCreateView-onViewCreated-onActivityCreated-(onPause-onStop-onDestroyView)-onStart-onResume
-总结：setUserVisibleHint永远是第一个调用的方法，初始化时会调用2次(ViewPage预加载次数)，后面切换时会调用(mOffscreenPageLimit*2+1)次；
+总结：setUserVisibleHint永远是第一个调用的方法，初始化时会调用2次(ViewPage预加载次数)，后面切换时会调用(mOffscreenPageLimit\*2+1)次；
 setOffscreenPageLimit是设置当前页左右各缓存的页数；在FragmentPagerAdapter管理下默认会初始化两个Fragment；
-会缓存(mOffscreenPageLimit*2+1)个Fragment的View在缓存中,超过这个数的Fragment会执行onDestroyView，但不会执行onDestroy；
+会缓存(mOffscreenPageLimit\*2+1)个Fragment的View在缓存中,超过这个数的Fragment会执行onDestroyView，但不会执行onDestroy；
 FragmentPagerAdapter管理下的所有Fragment都不会执行onDestroy，意味着自己无需通过ArrayList引用Fragment；
 FragmentPagerAdapter创建的Fragment实例会一直存在内存中直到Activity执行Finish；
 
@@ -69,5 +69,5 @@ FragmentPagerAdapter创建的Fragment实例会一直存在内存中直到Activit
     向左切换超过缓存数量后
     setUserVisibleHint-onAttach-onCreate-(onPause-onStop-onDestroyView-onDestroy-onDetach)-onCreateView-onViewCreated-onActivityCreated-onStart-onResume
 总结：和FragmentPagerAdapter不同的地方在于：
-会缓存(mOffscreenPageLimit*2+1)个Fragment的View在缓存中,超过这个数的Fragment会执行onDestroy、onDetach；
-超过缓存数(mOffscreenPageLimit*2+1)的Fragment会主动销毁，节约内存；
+会缓存(mOffscreenPageLimit\*2+1)个Fragment的View在缓存中,超过这个数的Fragment会执行onDestroy、onDetach；
+超过缓存数(mOffscreenPageLimit\*2+1)的Fragment会主动销毁，节约内存；
