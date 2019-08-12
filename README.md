@@ -62,6 +62,20 @@ setOffscreenPageLimit是设置当前页左右各缓存的页数；在FragmentPag
 FragmentPagerAdapter管理下的所有Fragment都不会执行onDestroy，意味着自己无需通过ArrayList引用Fragment；
 FragmentPagerAdapter创建的Fragment实例会一直存在内存中直到Activity执行Finish；
 
+### Fragment与FragmentAciviy在FragmentPagerAdapter管理下的交叉生命周期
+    onCreate-onCreateView-onStart-onPostCreate-onResume-onResumeFragments-onPostResume-onAttachedToWindow
+         (Fragment)setUserVisibleHint-onAttach-
+    onAttachFragment
+         (Fragment)onCreate-onCreateView-
+    onCreateView
+         (Fragment)onViewCreated-onActivityCreated-onStart-onResume-
+    缓存满情况下切换ViewPage
+         (Fragment)setUserVisibleHint-onAttach-
+    onAttachFragment
+         (Fragment)onCreate-(onPause-onStop-onDestroyView)-onCreateView-
+    onCreateView
+         (Fragment)onViewCreated-onActivityCreated-onStart-onResume-
+
 ### Fragment在FragmentStatePagerAdapter管理下的生命周期
     setUserVisibleHint-onAttach-onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-onResume
     向右切换超过缓存数量后
@@ -71,3 +85,17 @@ FragmentPagerAdapter创建的Fragment实例会一直存在内存中直到Activit
 总结：和FragmentPagerAdapter不同的地方在于：
 会缓存(mOffscreenPageLimit\*2+1)个Fragment的View在缓存中,超过这个数的Fragment会执行onDestroy、onDetach；
 超过缓存数(mOffscreenPageLimit\*2+1)的Fragment会主动销毁，节约内存；
+
+### Fragment与FragmentAciviy在FragmentStatePagerAdapter管理下的交叉生命周期
+	onCreate-onCreateView-onStart-onPostCreate-onResume-onResumeFragments-onPostResume-onAttachedToWindow
+	     (Fragment)setUserVisibleHint-onAttach-
+	onAttachFragment
+	     (Fragment)onCreate-onCreateView-
+	onCreateView
+	     (Fragment)onViewCreated-onActivityCreated-onStart-onResume-
+	缓存满情况下切换ViewPage
+	     (Fragment)setUserVisibleHint-onAttach-
+	onAttachFragment
+	     (Fragment)onCreate-(onPause-onStop-onDestroyView-onDestroy-onDetach)-onCreateView-
+	onCreateView
+	     (Fragment)onViewCreated-onActivityCreated-onStart-onResume-
