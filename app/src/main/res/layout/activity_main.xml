@@ -40,4 +40,10 @@
         android:layout_height="wrap_content"
         android:onClick="clk"
         android:text="StatePageAdapterActivity" />
+    <Button
+        android:id="@+id/btnHideOrAddFragmentActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clk"
+        android:text="HideOrAddFragmentActivity" />
 </LinearLayout>

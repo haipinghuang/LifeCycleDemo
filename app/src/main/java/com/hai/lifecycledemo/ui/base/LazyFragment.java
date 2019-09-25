@@ -8,7 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 /**
- * 懒加载Fragment,数据延迟到view可见时加载
+ * 懒加载Fragment,数据延迟到view可见时加载.
+ * 用户与ViewPage结合使用
  * Created by huanghp on 2019/8/12.
  * Email h1132760021@sina.com
  */

@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnStatePageAdapterActivity:
                 startActivity(new Intent(this, StatePageAdapterActivity.class));
                 break;
+            case R.id.btnHideOrAddFragmentActivity:
+                startActivity(new Intent(this, HideOrAddFragmentActivity.class));
+                break;
         }
     }
 }
