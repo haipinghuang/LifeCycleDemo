@@ -99,3 +99,24 @@ FragmentPagerAdapter创建的Fragment实例会一直存在内存中直到Activit
 	     (Fragment)onCreate-(onPause-onStop-onDestroyView-onDestroy-onDetach)-onCreateView-
 	onCreateView
 	     (Fragment)onViewCreated-onActivityCreated-onStart-onResume-
+	     
+### Fragment与Activity在add hide or show切换管理下的交叉生命周期
+	onCreate-onCreateView-
+	     (Fragment)onAttach-
+	onAttachFragment-
+	     (Fragment)onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-
+	onStart-onPostCreate-onResume-
+	     (Fragment)onResume-
+	onResumeFragments-onPostResume-onAttachedToWindow-
+	切换新tab
+	     (Fragment)onAttach-
+	onAttachFragment-
+	     (Fragment)onCreate-onCreateView-onViewCreated-onActivityCreated-onStart-onResume-
+	切换旧tab
+	      无log
+	跳转到其它Activity(不finish自己)
+	     (Fragment)onPause-
+	onPause-onSaveInstanceState-
+	     (Fragment)onStop-
+	onStop-
+总结：fragment在FragmentTransaction的管理下可以add、hide or show多个,但一般情况下我们只会show一个;add过的fragment状态都停留在onResume，不管此时有没有显示；
