@@ -10,8 +10,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hai.lifecycledemo.R;
+import com.hai.lifecycledemo.ui.base.LifeCycleActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends LifeCycleActivity {
     private static final String TAG = "MainActivity";
 
     @Override

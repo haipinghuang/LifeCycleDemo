@@ -1,11 +1,13 @@
 package com.hai.lifecycledemo.ui.base;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -37,7 +39,7 @@ public class LifeCycleActivity extends AppCompatActivity {
 
     @Override
     public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
-        Log.i(TAG, "onCreateView() called with: parent = [" + parent + "], name = [" + name + "], context = [" + context + "], attrs = [" + attrs + "]");
+//        Log.i(TAG, "onCreateView() called with: parent = [" + parent + "], name = [" + name + "], context = [" + context + "], attrs = [" + attrs + "]");
         return super.onCreateView(parent, name, context, attrs);
     }
 
@@ -113,4 +115,15 @@ public class LifeCycleActivity extends AppCompatActivity {
         Log.i(TAG, "onAttachFragment() called with: fragment = [" + fragment + "]");
     }
 
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i(TAG, "onConfigurationChanged() called with: newConfig = [" + newConfig + "]");
+    }
+
+    @Override
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
+        Log.i(TAG, "onMultiWindowModeChanged() called with: isInMultiWindowMode = [" + isInMultiWindowMode + "], newConfig = [" + newConfig + "]");
+    }
 }
