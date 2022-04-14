@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
  * Email h1132760021@sina.com
  */
 public class LifeCycleActivity extends AppCompatActivity {
-    protected static final String TAG = "LifeCycleActivity";
+    protected final String TAG =getClass().getSimpleName();
 
 
     @Override
