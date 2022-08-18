@@ -1,13 +1,8 @@
 package com.hai.lifecycledemo.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.hai.lifecycledemo.R;
 import com.hai.lifecycledemo.ui.base.LifeCycleActivity;

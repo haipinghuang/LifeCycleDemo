@@ -11,39 +11,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clk"
-        android:text="ViewInAActivity" />
+        android:text="ViewInAActivity"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnFragmentInAActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clk"
-        android:text="FragmentInAActivity" />
+        android:text="FragmentInAActivity"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnTabHostActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clk"
-        android:text="TabHostActivity" />
+        android:text="TabHostActivity"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnPageAdapterActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clk"
-        android:text="PageAdapterActivity" />
+        android:text="PageAdapterActivity"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnStatePageAdapterActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clk"
-        android:text="StatePageAdapterActivity" />
+        android:text="StatePageAdapterActivity"
+        android:textAllCaps="false" />
+
     <Button
         android:id="@+id/btnHideOrAddFragmentActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clk"
-        android:text="HideOrAddFragmentActivity" />
+        android:text="HideOrAddFragmentActivity"
+        android:textAllCaps="false" />
 </LinearLayout>
